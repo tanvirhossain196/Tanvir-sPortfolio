@@ -1,0 +1,711 @@
+/* Contact page specific styles */
+
+.section-contact {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.title-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(
+    to right,
+    var(--accent-blue),
+    var(--accent-purple)
+  );
+  animation: morphGradient 10s infinite;
+  background-size: 200% auto;
+}
+
+.title-underline {
+  width: 100%;
+  height: 0.25rem;
+  margin-top: 0.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(
+    to right,
+    var(--accent-blue),
+    var(--accent-purple)
+  );
+  transform: scaleX(0);
+  animation: scale-in 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+.section-subtitle {
+  max-width: 32rem;
+  margin: 0 auto;
+  color: var(--text-dark-secondary);
+}
+
+.light-mode .section-subtitle {
+  color: var(--text-light-secondary);
+}
+
+/* Contact circles layout */
+.contact-circles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .contact-circles {
+    flex-direction: row;
+    gap: 3rem;
+  }
+}
+
+/* Contact circle base styles */
+.contact-circle {
+  width: 16rem;
+  height: 16rem;
+  position: relative;
+  border-radius: 50%;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: fadeIn 1s forwards ease-out;
+  cursor: pointer;
+}
+
+.email-circle {
+  animation-delay: 0.3s;
+  margin-top: 0;
+}
+
+.linkedin-circle {
+  animation-delay: 0.6s;
+  margin-top: -2rem;
+}
+
+@media (min-width: 768px) {
+  .linkedin-circle {
+    margin-top: 2rem;
+  }
+}
+
+.github-circle {
+  animation-delay: 0.9s;
+  margin-top: 0;
+}
+
+/* Animated layers */
+.circle-layer {
+  position: absolute;
+  border-radius: 50%;
+  animation: pulse-slow 4s infinite;
+}
+
+.email-circle .layer-1 {
+  inset: 2.5rem;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.5),
+    rgba(59, 130, 246, 0.3)
+  );
+  filter: blur(1rem);
+  animation-delay: 0.5s;
+}
+
+.email-circle .layer-2 {
+  inset: 1.5rem;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.6),
+    rgba(59, 130, 246, 0.4)
+  );
+  filter: blur(0.75rem);
+  animation-delay: 1s;
+}
+
+.email-circle .layer-3 {
+  inset: 0.75rem;
+  background: radial-gradient(
+    circle,
+    rgba(59, 130, 246, 0.7),
+    rgba(59, 130, 246, 0.5)
+  );
+  filter: blur(0.5rem);
+  animation-delay: 1.5s;
+}
+
+.email-circle .layer-4 {
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(59, 130, 246, 0.8),
+    rgba(36, 99, 235, 0.8)
+  );
+}
+
+.linkedin-circle .layer-1 {
+  inset: 2.5rem;
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.5),
+    rgba(139, 92, 246, 0.3)
+  );
+  filter: blur(1rem);
+  animation-delay: 0.5s;
+}
+
+.linkedin-circle .layer-2 {
+  inset: 1.5rem;
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.6),
+    rgba(139, 92, 246, 0.4)
+  );
+  filter: blur(0.75rem);
+  animation-delay: 1s;
+}
+
+.linkedin-circle .layer-3 {
+  inset: 0.75rem;
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.7),
+    rgba(139, 92, 246, 0.5)
+  );
+  filter: blur(0.5rem);
+  animation-delay: 1.5s;
+}
+
+.linkedin-circle .layer-4 {
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(139, 92, 246, 0.8),
+    rgba(124, 58, 237, 0.8)
+  );
+}
+
+.github-circle .layer-1 {
+  inset: 2.5rem;
+  background: radial-gradient(
+    circle,
+    rgba(236, 72, 153, 0.5),
+    rgba(236, 72, 153, 0.3)
+  );
+  filter: blur(1rem);
+  animation-delay: 0.5s;
+}
+
+.github-circle .layer-2 {
+  inset: 1.5rem;
+  background: radial-gradient(
+    circle,
+    rgba(236, 72, 153, 0.6),
+    rgba(236, 72, 153, 0.4)
+  );
+  filter: blur(0.75rem);
+  animation-delay: 1s;
+}
+
+.github-circle .layer-3 {
+  inset: 0.75rem;
+  background: radial-gradient(
+    circle,
+    rgba(236, 72, 153, 0.7),
+    rgba(236, 72, 153, 0.5)
+  );
+  filter: blur(0.5rem);
+  animation-delay: 1.5s;
+}
+
+.github-circle .layer-4 {
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(236, 72, 153, 0.8),
+    rgba(219, 39, 119, 0.8)
+  );
+}
+
+/* Content area */
+.circle-content {
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background-color: rgba(17, 24, 39, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  transition: border-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.light-mode .circle-content {
+  background-color: rgba(249, 250, 251, 0.9);
+}
+
+.contact-circle:hover .circle-content {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Abstract decorations */
+.circle-decorations {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+}
+
+.decoration {
+  position: absolute;
+  border-radius: 50%;
+  border-width: 1px;
+  border-style: solid;
+  opacity: 0.2;
+}
+
+.decoration.ring-1 {
+  top: 50%;
+  left: 50%;
+  width: 10rem;
+  height: 10rem;
+  transform: translate(-50%, -50%);
+  border-color: rgba(255, 255, 255, 0.3);
+  animation: spin-slow 20s linear infinite;
+}
+
+.decoration.ring-2 {
+  top: 50%;
+  left: 50%;
+  width: 12rem;
+  height: 12rem;
+  transform: translate(-50%, -50%);
+  border-color: rgba(255, 255, 255, 0.2);
+  animation: spin-reverse 15s linear infinite;
+}
+
+/* Circle info content */
+.circle-info {
+  text-align: center;
+  padding: 1.5rem;
+  z-index: 10;
+  width: 100%;
+}
+
+/* Icon styling */
+.contact-icon-container {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: 0 auto 1rem;
+}
+
+.icon-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: pulse-slow 4s infinite;
+}
+
+.email-circle .icon-glow {
+  background-color: rgba(59, 130, 246, 0.5);
+}
+
+.linkedin-circle .icon-glow {
+  background-color: rgba(139, 92, 246, 0.5);
+}
+
+.github-circle .icon-glow {
+  background-color: rgba(236, 72, 153, 0.5);
+}
+
+.contact-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  transition: transform 0.5s;
+}
+
+.contact-circle:hover .contact-icon {
+  transform: scale(1.1);
+}
+
+/* Contact text styling */
+.contact-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.light-mode .contact-title {
+  color: var(--text-light-primary);
+}
+
+.contact-detail {
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s;
+  font-size: 0.875rem;
+  overflow: hidden;
+}
+
+.email-circle .contact-detail {
+  color: #3b82f6;
+}
+
+.linkedin-circle .contact-detail {
+  color: #8b5cf6;
+}
+
+.github-circle .contact-detail {
+  color: #ec4899;
+}
+
+.contact-detail .detail-underline {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  transition: width 0.5s;
+}
+
+.email-circle .detail-underline {
+  background-color: #3b82f6;
+}
+
+.linkedin-circle .detail-underline {
+  background-color: #8b5cf6;
+}
+
+.github-circle .detail-underline {
+  background-color: #ec4899;
+}
+
+.contact-circle:hover .contact-detail .detail-underline {
+  width: 100%;
+}
+
+/* Hint for email circle */
+.contact-hint {
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  transform: translateY(5px);
+  transition: all 0.5s;
+}
+
+.light-mode .contact-hint {
+  color: rgba(17, 24, 39, 0.6);
+}
+
+.email-circle:hover .contact-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Circle glow effect on hover */
+.circle-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.5s;
+  z-index: -1;
+  filter: blur(1rem);
+}
+
+.email-circle .circle-glow {
+  background-color: rgba(59, 130, 246, 0.4);
+}
+
+.linkedin-circle .circle-glow {
+  background-color: rgba(139, 92, 246, 0.4);
+}
+
+.github-circle .circle-glow {
+  background-color: rgba(236, 72, 153, 0.4);
+}
+
+.contact-circle:hover .circle-glow {
+  opacity: 0.4;
+}
+
+/* Particle effects */
+.circle-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+.contact-circle:hover .circle-particles {
+  opacity: 1;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.particle.p-1 {
+  top: 25%;
+  left: 25%;
+  width: 0.5rem;
+  height: 0.5rem;
+  animation: float-particle 3s infinite;
+}
+
+.particle.p-2 {
+  bottom: 25%;
+  right: 25%;
+  width: 0.5rem;
+  height: 0.5rem;
+  animation: float-particle 3s infinite;
+  animation-delay: 0.75s;
+}
+
+.particle.p-3 {
+  top: 50%;
+  right: 25%;
+  width: 0.375rem;
+  height: 0.375rem;
+  animation: float-particle 3s infinite;
+  animation-delay: 1.5s;
+}
+
+.particle.p-4 {
+  bottom: 33%;
+  left: 33%;
+  width: 0.25rem;
+  height: 0.25rem;
+  animation: float-particle 3s infinite;
+  animation-delay: 2.25s;
+}
+
+/* Outer rotating ring */
+.outer-ring {
+  position: absolute;
+  inset: -0.75rem;
+  border-radius: 50%;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: opacity 0.7s;
+  animation: spin-slow 20s linear infinite;
+}
+
+.contact-circle:hover .outer-ring {
+  opacity: 1;
+}
+
+/* Connecting lines */
+.connecting-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.5;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .connecting-lines {
+    display: block;
+  }
+}
+
+.connecting-lines .line {
+  stroke-width: 1;
+  stroke-dasharray: 5, 5;
+  animation: lineDash 20s linear infinite;
+}
+
+.line-1 {
+  stroke: url(#line-gradient-1);
+}
+
+.line-2 {
+  stroke: url(#line-gradient-2);
+}
+
+.line-3 {
+  stroke: url(#line-gradient-3);
+}
+
+/* Footer styling */
+.footer-container {
+  margin-top: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.footer-divider {
+  width: 8rem;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--accent-indigo),
+    transparent
+  );
+  margin: 1rem auto;
+}
+
+.footer-text {
+  font-size: 0.875rem;
+  margin-top: 2rem;
+}
+
+.dark-mode .footer-text {
+  color: var(--text-dark-secondary);
+}
+
+.light-mode .footer-text {
+  color: var(--text-light-secondary);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.footer-link {
+  font-size: 0.75rem;
+  color: var(--text-dark-secondary);
+  transition: color 0.3s;
+}
+
+.light-mode .footer-link {
+  color: var(--text-light-secondary);
+}
+
+.footer-link:hover {
+  color: var(--accent-indigo);
+}
+
+.footer-separator {
+  font-size: 0.75rem;
+  color: var(--text-dark-secondary);
+}
+
+.light-mode .footer-separator {
+  color: var(--text-light-secondary);
+}
+
+/* Email popup specific to contact page */
+.section-contact .email-popup {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-slow {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-30px) translateX(20px);
+    opacity: 0.6;
+  }
+  75% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-20px) translateX(50px);
+    opacity: 0;
+  }
+}
+
+@keyframes lineDash {
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
